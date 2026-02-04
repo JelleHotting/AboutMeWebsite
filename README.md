@@ -12,7 +12,7 @@ Ik ben in de ochtend bezig geweest de vraagtekens toevoegen en leren over de API
 
 **Wat heb ik geleerd?**
 
-Dat een <dialog> element alleen te gebruiken valt wanneer je een <form> gebruikt
+Dat een dialog element alleen te gebruiken valt wanneer je een form gebruikt
 
 **Wat ga ik morgen doen?**
 
