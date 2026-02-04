@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelle Hotting</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+    ></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Klik op een vraagteken om meer te leren</h1>
+
+      <ul></ul>
+
+      <!-- Bron voor low poly model: https://sketchfab.com/3d-models/low-poly-man-7b93db2d46d847f191cf5e841b322856 -->
+      <model-viewer
+        alt="een low poly versie van een persoon"
+        src="assets/low-poly_man.glb"
+        shadow-intensity="1"
+        poster
+        style="transform: translateY(0%) scale(1); width: 100%; height: 100vh"
+        id="hotspot-demo"
+        ar
+        ar-modes="webxr"
+        disable-zoom
+        disable-pan
+        camera-controls
+        autoplay
+        animation-name="Idle2"
+      >
+        <button
+          class="Hotspot"
+          slot="hotspot-2"
+          data-surface="0 0 1020 1022 1023 0.879 0.052 0.068"
+          data-visibility-attribute="visible"
+          popovertarget="gaming-popover"
+        >
+          <div class="HotspotAnnotation">?</div>
+        </button>
+        <div id="gaming-popover" popover>
+            <h2>Gaming</h2>
+            <p>Ik speel momenteel de games: API TEKST HIER IN</p>
+            <button class="close" popovertarget="gaming-popover" popovertargetaction="hide">x</button>
+        </div>
+
+        <button
+          class="Hotspot"
+          slot="hotspot-3"
+          data-surface="0 0 980 981 982 0.344 0.178 0.477"
+          data-visibility-attribute="visible"
+          popovertarget="hobbies-popover"
+        >
+          <div class="HotspotAnnotation">?</div>
+        </button>
+        <div id="hobbies-popover" popover>
+            <h2>Hobbies</h2>
+            <p>Mijn hobbies zijn: API TEKST HIER IN</p>
+            <button class="close" popovertarget="hobbies-popover" popovertargetaction="hide">x</button>
+        </div>
+
+            <button class="Hotspot" slot="hotspot-1" data-surface="0 0 2820 2822 2823 0.335 0.552 0.113" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+
+
+        <button
+          class="Hotspot"
+          slot="hotspot-4"
+          data-surface="0 0 3836 3838 3839 0.097 0.742 0.161"
+          data-visibility-attribute="visible"
+          popovertarget="skills-popover"
+        >
+          <div class="HotspotAnnotation">?</div>
+        </button>
+        <div id="skills-popover" popover>
+            <h2>Skills</h2>
+            <p>Mijn vaardigheden zijn: API TEKST HIER IN</p>
+            <button class="close" popovertarget="skills-popover" popovertargetaction="hide">x</button>
+        </div>
+      </model-viewer>
+
+      
+    </main>
+  </body>
+</html>
