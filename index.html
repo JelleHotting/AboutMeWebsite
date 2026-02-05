@@ -5,31 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jelle Hotting</title>
     <link rel="stylesheet" href="styles.css" />
-    <script
-      defer
-      type="module"
-      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
-    ></script>
+    
+    <!-- ES Module Shims for Safari support -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
+    
+    <!-- Import map for Three.js -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js"
+      }
+    }
+    </script>
+    
+    <!-- Model Viewer Module -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+    
+    <!-- Model Viewer Effects -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
+    
     <script defer src="script.js"></script>
   </head>
   <body>
     <main>
+      <section class="balloon-letters">
+        <ul>
+          <li>
+            <img src="assets/images/letterJ.png" alt="letter J in balon vorm" />
+          </li>
+          <li>
+            <img
+              src="assets/images/letterE1.png"
+              alt="letter E in balon vorm"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/images/letterL1.png"
+              alt="letter L in balon vorm"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/images/letterL2.png"
+              alt="letter L in balon vorm"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/images/letterE2.png"
+              alt="letter E in balon vorm"
+            />
+          </li>
+        </ul>
 
-        <section class="balloon-letters">
-            <ul>
-                <li><img src="assets/images/letterJ.png" alt="letter J in balon vorm"></li>
-                <li><img src="assets/images/letterE1.png" alt="letter E in balon vorm"></li>
-                <li><img src="assets/images/letterL1.png" alt="letter L in balon vorm"></li>
-                <li><img src="assets/images/letterL2.png" alt="letter L in balon vorm"></li>
-                <li><img src="assets/images/letterE2.png" alt="letter E in balon vorm"></li>
-            </ul>
-
-
-
-    <progress id="progress-bar" value="0" max="100"></progress>
-
-
-        </section>
+        <progress id="progress-bar" value="0" max="100"></progress>
+      </section>
 
       <h1>Klik op een vraagteken om meer te leren</h1>
 
@@ -45,6 +76,10 @@
         autoplay
         animation-name="Idle2"
       >
+        <effect-composer>
+          <pixelate-effect></pixelate-effect>
+        </effect-composer>
+
         <button
           class="Hotspot"
           slot="hotspot-2"
