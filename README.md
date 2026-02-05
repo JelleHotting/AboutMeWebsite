@@ -40,9 +40,33 @@
 
 #### Wat ga ik morgen doen?
 
-- [ ] Animatie toevoegen aan een model
-- [ ] Geheime knop toevoegen
-- [ ] Loading animatie toevoegen
+- [x] Animatie toevoegen aan een model
+- [x] Geheime knop toevoegen
+- [x] Loading animatie toevoegen
 
 ---
 
+### Dag 2
+### Wat heb ik gedaan vandaag?
+
+| Activiteit | Duur |
+|------------|------|
+| Animatie toegevoegd aan model wanneer je op een geheime plek klikt| 1,5 uur |
+| Workshop gevolgd over HTML | 1 uur |
+| Loading animatie toegevoegd voordat de pagina laadt | 3 uur |
+| Kleine pauze | 1 uur |
+| Github en README bijwerken | 1,5 uur |
+
+![Dag 2 Screenshot](./readme_images/dag2.png)
+
+#### Wat heb ik geleerd?
+
+* Dat je een `<progress>` element kan gebruiken voor een progressbar, zoals die tijdens het laden van de website
+* Animatie toevoegen aan `<model-viewer>` en dit koppelen aan een eventListener
+* Filter toevoegen aan `<model-viewer>` door middel van `<effect-composer>`
+
+### Wat ga ik morgen doen?
+
+- [ ] Verschillende states toevoegen (dark en light mode)
+- [ ] API toevoegen
+- [ ] Responsive toevoegen
