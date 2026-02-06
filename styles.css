@@ -4,11 +4,58 @@
 }
 
 :root {
-  --dark-bg: #1e1e1e;
-  --medium-bg: #3e3e3e;
-  --light-bg: #5e5e5e;
-  --text-color: white;
+  /* Typography */
   --font-family: "Undefined Medium";
+  --font-size-base: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-sm: 0.9rem;
+  
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
+  --spacing-xl: 80px;
+  
+  /* Border & Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 18px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode (default) */
+:root {
+  --dark-bg: #f5f5f5;
+  --medium-bg: #e0e0e0;
+  --light-bg: #c0c0c0;
+  --text-color: #1e1e1e;
+  --accent-color: #4a90e2;
+  --border-color: #d0d0d0;
+  --backdrop-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark-bg: #1e1e1e;
+    --medium-bg: #3e3e3e;
+    --light-bg: #5e5e5e;
+    --text-color: white;
+    --accent-color: #6ab0f3;
+    --border-color: #4e4e4e;
+    --backdrop-color: rgba(0, 0, 0, 0.7);
+  }
 }
 
 .balloon-letters {
@@ -298,4 +345,153 @@ html:has(.balloon-letters:not(.loaded)) {
 
 body:has(.balloon-letters:not(.loaded)) {
   overflow: hidden;
+}
+
+/* https://codepen.io/AndreusCafe/pen/rNvWboJ */
+kbd {
+  --key-radius: 8px;
+  --key-red: rgb(255, 100, 100);
+  --key-green: rgb(100, 200, 100);
+  --key-blue: rgb(100, 100, 255);
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--key-radius);
+  transform: translate3d(0, 0, 0);
+  min-width: 45px;
+  min-height: 40px;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 1em;
+  cursor: default;
+  user-select: none;
+  top: -2px;
+  transition: top 0.1s ease-in-out;
+  color: var(--text-color);
+  animation: kbd-color 5s -0.5s linear infinite, kbd-shadow 5s -0.5s linear infinite;
+  z-index: 2;
+}
+
+kbd:before {
+  content: '';
+  width: 400vmin;
+  height: 400vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(var(--key-red), var(--key-green), var(--key-blue), var(--key-red));
+  animation: kbd-spin 5s -0.5s linear infinite;
+  z-index: 0;
+}
+
+kbd:after {
+  content: '';
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background-color: var(--dark-bg);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: calc(var(--key-radius) * 0.7);
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) inset;
+}
+
+kbd * {
+  position: relative;
+  z-index: 2;
+}
+
+
+kbd:active {
+  top: 0px;
+}
+
+kbd:active:after {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
+}
+
+kbd.pressed {
+  animation: kbd-color 0.5s linear infinite, kbd-shadow 0.5s linear infinite;
+  top: 0px;
+}
+
+kbd.pressed:after {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
+}
+
+dl {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--medium-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Bron copilot: "ik wil dat de dl pas zichbaar wordt wanneer je de konami code hebt ingevuld" */
+
+dl.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+dl div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+dl div:last-child {
+  margin-bottom: 0;
+}
+
+dl dt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+dl dd {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+@keyframes kbd-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes kbd-shadow {
+  0% { box-shadow: 0 0 20px -8px var(--key-red); }
+  33% { box-shadow: 0 0 20px -8px var(--key-blue); }
+  66% { box-shadow: 0 0 20px -8px var(--key-green); }
+  100% { box-shadow: 0 0 20px -8px var(--key-red); }
+}
+
+@keyframes kbd-color {
+  0% { color: var(--key-red); }
+  33% { color: var(--key-blue); }
+  66% { color: var(--key-green); }
+  100% { color: var(--key-red); }
+}
+
+@keyframes kbd-press-glow {
+  0% { box-shadow: 0 0 30px -4px var(--key-red), 0 0 60px -8px var(--key-red), inset 0 4px 8px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 50px 0px var(--key-red), 0 0 100px -4px var(--key-red), inset 0 2px 4px rgba(0, 0, 0, 0.3); }
+  100% { box-shadow: 0 0 20px -8px var(--key-red), inset 0 4px 8px rgba(0, 0, 0, 0.3); }
 }

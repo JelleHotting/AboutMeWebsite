@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jelle Hotting</title>
     <link rel="stylesheet" href="styles.css" />
-    
+
     <!-- ES Module Shims for Safari support -->
-    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
-    
+    <script
+      async
+      src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"
+    ></script>
+
     <!-- Import map for Three.js -->
     <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js"
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js"
+        }
       }
-    }
     </script>
-    
+
     <!-- Model Viewer Module -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
-    
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"
+    ></script>
+
     <!-- Model Viewer Effects -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
-    
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"
+    ></script>
+
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -31,29 +40,32 @@
       <section class="balloon-letters">
         <ul>
           <li>
-            <img src="assets/images/letterJ.png" alt="letter J in balon vorm" />
+            <img
+              src="assets/images/letterJ.webp"
+              alt="letter J in balon vorm"
+            />
           </li>
           <li>
             <img
-              src="assets/images/letterE1.png"
+              src="assets/images/letterE1.webp"
               alt="letter E in balon vorm"
             />
           </li>
           <li>
             <img
-              src="assets/images/letterL1.png"
+              src="assets/images/letterL1.webp"
               alt="letter L in balon vorm"
             />
           </li>
           <li>
             <img
-              src="assets/images/letterL2.png"
+              src="assets/images/letterL2.webp"
               alt="letter L in balon vorm"
             />
           </li>
           <li>
             <img
-              src="assets/images/letterE2.png"
+              src="assets/images/letterE2.webp"
               alt="letter E in balon vorm"
             />
           </li>
@@ -75,6 +87,7 @@
         camera-controls
         autoplay
         animation-name="Idle2"
+        variant-name="default"
       >
         <effect-composer>
           <pixelate-effect></pixelate-effect>
@@ -154,6 +167,18 @@
       </model-viewer>
 
       <button class="back">Kom terug!</button>
+
+      <dl class="cheatsheet">
+        <div>
+          <dt><kbd id="key-5"><span>5</span></kbd></dt>
+          <dd>Party mode (werkt nog niet)</dd>
+        </div>
+
+        <div>
+          <dt><kbd id="key-ctrl"><span class="modifier-key">Ctrl</span></kbd> + <kbd id="key-s"><span>S</span></kbd></dt>
+          <dd>Doei</dd>
+        </div>
+      </dl>
     </main>
   </body>
 </html>

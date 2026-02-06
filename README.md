@@ -67,6 +67,6 @@
 
 ### Wat ga ik morgen doen?
 
-- [ ] Verschillende states toevoegen (dark en light mode)
+- [x] Verschillende states toevoegen (dark en light mode)
 - [ ] API toevoegen
-- [ ] Responsive toevoegen
+- [x] Responsive toevoegen
