@@ -70,3 +70,24 @@
 - [x] Verschillende states toevoegen (dark en light mode)
 - [ ] API toevoegen
 - [x] Responsive toevoegen
+
+---
+
+### Dag 3
+
+### Wat heb ik gedaan vandaag?
+
+| Activiteit | Duur |
+|------------|------|
+| Pixelate filter toegevoegd | 1,5 uur |
+| Geheime keyboard shortcut toegevoegd voor cheatsheet | 2,5 uur |
+
+### Wat heb ik geleerd?
+
+* Hoe je dynamisch een pixelate effect toevoegt en deze dynamisch veranderd
+* Met javascript checken voor een darkmode/lightmode change
+* Dat je soms de browser moet updaten
+
+### Wat ga ik morgen doen?
+
+- [x] Weekend

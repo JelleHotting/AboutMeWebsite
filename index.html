@@ -5,78 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jelle Hotting</title>
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- ES Module Shims for Safari support -->
-    <script
-      async
-      src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"
-    ></script>
-
-    <!-- Import map for Three.js -->
+    <link rel="icon" type="image/webp" href="assets/images/letterJ.webp" />
+    
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
     <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js"
-        }
-      }
+      { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js" } }
     </script>
-
-    <!-- Model Viewer Module -->
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"
-    ></script>
-
-    <!-- Model Viewer Effects -->
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"
-    ></script>
-
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
     <main>
       <section class="balloon-letters">
         <ul>
-          <li>
-            <img
-              src="assets/images/letterJ.webp"
-              alt="letter J in balon vorm"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/letterE1.webp"
-              alt="letter E in balon vorm"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/letterL1.webp"
-              alt="letter L in balon vorm"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/letterL2.webp"
-              alt="letter L in balon vorm"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/letterE2.webp"
-              alt="letter E in balon vorm"
-            />
-          </li>
+          <li><img src="assets/images/letterJ.webp" alt="letter J in balon vorm" /></li>
+          <li><img src="assets/images/letterE1.webp" alt="letter E in balon vorm" /></li>
+          <li><img src="assets/images/letterL1.webp" alt="letter L in balon vorm" /></li>
+          <li><img src="assets/images/letterL2.webp" alt="letter L in balon vorm" /></li>
+          <li><img src="assets/images/letterE2.webp" alt="letter E in balon vorm" /></li>
         </ul>
-
         <progress id="progress-bar" value="0" max="100"></progress>
       </section>
 
       <h1>Klik op een vraagteken om meer te leren</h1>
 
-      <!-- Bron voor low poly model: https://sketchfab.com/3d-models/low-poly-man-7b93db2d46d847f191cf5e841b322856 -->
       <model-viewer
         alt="een low poly versie van een persoon"
         src="assets/low-poly_man.glb"
@@ -89,80 +42,56 @@
         animation-name="Idle2"
         variant-name="default"
       >
-        <effect-composer>
-          <pixelate-effect></pixelate-effect>
-        </effect-composer>
+        <effect-composer><pixelate-effect></pixelate-effect></effect-composer>
 
-        <button
-          class="Hotspot"
-          slot="hotspot-2"
-          data-surface="0 0 1020 1022 1023 0.879 0.052 0.068"
-          data-visibility-attribute="visible"
-          popovertarget="gaming-popover"
-        >
-          <div class="HotspotAnnotation">?</div>
+        <button class="Hotspot" slot="hotspot-2" data-surface="0 0 1020 1022 1023 0.879 0.052 0.068" popovertarget="info-popover">
+          ?
         </button>
-        <div id="gaming-popover" popover>
-          <h2>Gaming</h2>
-          <p>Ik speel momenteel de games: API TEKST HIER IN</p>
-          <button
-            class="close"
-            popovertarget="gaming-popover"
-            popovertargetaction="hide"
-          >
-            x
-          </button>
+        <div id="info-popover" popover>
+          <h2></h2>
+          <p></p>
+          <button class="close" popovertarget="info-popover" popovertargetaction="hide">x</button>
         </div>
 
-        <button
-          class="Hotspot"
-          slot="hotspot-3"
-          data-surface="0 0 980 981 982 0.344 0.178 0.477"
-          data-visibility-attribute="visible"
-          popovertarget="hobbies-popover"
-        >
-          <div class="HotspotAnnotation">?</div>
+        <button class="Hotspot" slot="hotspot-3" data-surface="0 0 980 981 982 0.344 0.178 0.477" popovertarget="hobbies-popover">
+          ?
         </button>
         <div id="hobbies-popover" popover>
           <h2>Hobbies</h2>
           <p>Mijn hobbies zijn: Koken, Krachttraining & Gaming</p>
-          <button
-            class="close"
-            popovertarget="hobbies-popover"
-            popovertargetaction="hide"
-          >
-            x
-          </button>
+          <button class="close" popovertarget="hobbies-popover" popovertargetaction="hide">x</button>
         </div>
 
-        <button
-          class="HotspotSecret"
-          slot="hotspot-1"
-          data-surface="0 0 2820 2822 2823 0.335 0.552 0.113"
-          data-visibility-attribute="visible"
-        >
-          <div class="HotspotAnnotation"></div>
+        <button class="HotspotSecret" slot="hotspot-1" data-surface="0 0 2820 2822 2823 0.335 0.552 0.113">
+          ?
         </button>
 
-        <button
-          class="Hotspot"
-          slot="hotspot-4"
-          data-surface="0 0 3836 3838 3839 0.097 0.742 0.161"
-          data-visibility-attribute="visible"
-          popovertarget="skills-popover"
-        >
-          <div class="HotspotAnnotation">?</div>
+        <button class="Hotspot" slot="hotspot-4" data-surface="0 0 3836 3838 3839 0.097 0.742 0.161" popovertarget="skills-popover">
+          ?
         </button>
         <div id="skills-popover" popover>
-          <h2>Skills</h2>
-          <p>Mijn vaardigheden zijn: API TEKST HIER IN</p>
-          <button
-            class="close"
-            popovertarget="skills-popover"
-            popovertargetaction="hide"
-          >
-            x
+          <h2>Random student</h2>
+          <div class="skeleton-loader">
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-avatar"></div>
+          </div>
+          <div class="content-loaded" style="display: none;">
+            <p>Yo</p>
+            <div class="avatar-container">
+              <img class="avatar-img" src="null" alt="" />
+              <svg class="avatar-fallback" id="question" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+                <rect x="10" y="18" width="3" height="3"/>
+                <polygon points="17 5 17 11 16 11 16 12 15 12 15 13 13 13 13 15 10 15 10 12 11 12 11 11 13 11 13 10 14 10 14 6 10 6 10 7 9 7 9 8 7 8 7 5 8 5 8 4 9 4 9 3 15 3 15 4 16 4 16 5 17 5"/>
+              </svg>
+            </div>
+          </div>
+          <button class="refresh">
+            <svg id="refresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <polygon points="23 14 23 15 22 15 22 17 21 17 21 19 20 19 20 20 19 20 19 21 17 21 17 22 15 22 15 23 9 23 9 22 7 22 7 21 5 21 5 20 3 20 3 21 2 21 2 22 1 22 1 15 8 15 8 16 7 16 7 17 6 17 6 19 7 19 7 20 9 20 9 21 15 21 15 20 17 20 17 19 19 19 19 17 20 17 20 14 23 14"/>
+              <polygon points="23 2 23 9 16 9 16 8 17 8 17 7 18 7 18 5 17 5 17 4 15 4 15 3 9 3 9 4 7 4 7 5 5 5 5 7 4 7 4 10 1 10 1 9 2 9 2 7 3 7 3 5 4 5 4 4 5 4 5 3 7 3 7 2 9 2 9 1 15 1 15 2 17 2 17 3 19 3 19 4 21 4 21 3 22 3 22 2 23 2"/>
+            </svg>
           </button>
+          <button class="close" popovertarget="skills-popover" popovertargetaction="hide">x</button>
         </div>
       </model-viewer>
 
@@ -173,7 +102,6 @@
           <dt><kbd id="key-5"><span>5</span></kbd></dt>
           <dd>Party mode (werkt nog niet)</dd>
         </div>
-
         <div>
           <dt><kbd id="key-ctrl"><span class="modifier-key">Ctrl</span></kbd> + <kbd id="key-s"><span>S</span></kbd></dt>
           <dd>Doei</dd>
