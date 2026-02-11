@@ -8,9 +8,11 @@ const DOM = {
   refreshButton: document.querySelector(".refresh"), // Button om random persoon opnieuw in te laden
 };
 
-// API endpoint voor Directus data
+// Directus CMS API - https://fdnd.directus.app/items - Docs: https://docs.directus.io/reference/introduction.html
 const API_URL = "https://fdnd.directus.app/items";
-// Konami code vervolgvolgorde: ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️B+A (triggers cheatsheet)
+
+// Konami Code - https://en.wikipedia.org/wiki/Konami_Code
+// Sequence: ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️B+A (triggers cheatsheet)
 const KONAMI_CODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
 // ========== UTILITIES ==========
@@ -25,6 +27,7 @@ if (isMac) {
 }
 
 // ========== PROGRESS BAR ANIMATION ==========
+// requestAnimationFrame - MDN: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 // Animate loading bar van 0% naar 100% en show content daarna
 document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.getElementById("progress-bar");
@@ -47,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========== ANIMATION HANDLERS ==========
+// EventListener (click) - MDN: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 // Secret button: Zorg dat karakter werent en veranderen van positie
 DOM.secretButton.addEventListener("click", () => {
   // Speel "Run" animatie af
@@ -72,6 +76,7 @@ DOM.backButton.addEventListener("click", () => {
 });
 
 // ========== KEYBOARD SHORTCUTS ==========
+// EventListener (keydown) - MDN: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 // Ctrl+S (of Cmd+S op Mac) trigger secret button animation
 document.addEventListener("keydown", (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === "s") {
@@ -79,9 +84,53 @@ document.addEventListener("keydown", (e) => {
     DOM.secretButton.click(); // Trigger secret animation
     DOM.modelViewer.orientation = "0deg 0deg 100deg"; // Rotate het model
   }
+  
+  // 5 key triggers confetti party mode
+  if (e.key === "5") {
+    e.preventDefault();
+    triggerConfetti();
+  }
 });
 
+// ========== CONFETTI EFFECT ==========
+// Canvas Confetti - https://github.com/catdad/canvas-confetti - Demo: https://www.kirilv.com/canvas-confetti/
+// Party mode confetti effect wanneer gebruiker op 5 drukt
+function triggerConfetti() {
+  const duration = 3000; // 3 seconden
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const interval = setInterval(() => {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      return clearInterval(interval);
+    }
+
+    const particleCount = 50 * (timeLeft / duration);
+    
+    // Confetti van links
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+    });
+    
+    // Confetti van rechts
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+    });
+  }, 250);
+}
+
 // ========== TEXTURE MANAGEMENT (DARK MODE) ==========
+// matchMedia API - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
 // Save originele texture voor later
 let originalTexture = null;
 
@@ -113,6 +162,7 @@ DOM.modelViewer.addEventListener("load", () => {
 });
 
 // ========== KONAMI CODE HANDLER ==========
+// EventListener (keydown, keyup) - MDN: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 // Track position in konami code sequence
 let konamiIndex = 0;
 
@@ -150,6 +200,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 // ========== API FUNCTIONS ==========
+// Fetch API - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 // Haal random persoon op uit Directus API
 async function getData() {
   const skillsImage = document.querySelector(".avatar-img");
@@ -185,6 +236,15 @@ async function getData() {
 
     const { data } = await response.json();
     const { name, avatar } = data[0];
+
+    if (name == "Sanne 't Hooft") {
+skillsImage.classList.toggle("spin");
+    } else {
+      skillsImage.classList.remove("spin");
+    
+    }
+
+
 
     // Update HTML met persoonsnaam
     skillsParagraph.textContent = name;
@@ -247,3 +307,5 @@ getJelleData();
 getData();
 // Voeg refresh functionaliteit toe aan refresh button
 DOM.refreshButton.addEventListener("click", getData);
+
+

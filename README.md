@@ -214,6 +214,7 @@ async function getData() {
 
 * Wat een goeie placeholder tekst is voor tags die gevuld worden door API data
 * Hoe je een functie schrijft om een geboortedatum naar een leeftijd om te zetten
+* Dynamisch fonts aan te passen
 
 ### Wat ga ik morgen doen?
 
@@ -228,6 +229,25 @@ async function getData() {
 * Eerste variabele declareren in CSS en JS daarna de rest
 * Line height van 1.5
 
+### Wat heb ik gedaan vandaag?
+
+| Activiteit | Duur |
+|------------|------|
+| Icoontjes veranderd | 2 uur |
+| Data van mezelf in de API zetten | 1 uur |
+| Code van mezelf opgeschoond| 2 uur |
+| Leerdoelen opgesteld | 1,5 uur |
+| Pauze | 2 uur |
+
+### Wat heb ik geleerd?
+
+* Wanneer je camel case gebruikt en wanneer je kebab case gebruikt
+* Datetime gebruiken in een `<time>` element
+
+### Wat ga ik morgen doen?
+
+- [x] Presentatie houden
+
 ---
 
 ## Bronnenlijst
@@ -236,7 +256,6 @@ async function getData() {
 - **Directus CMS** - Directus.io
   - API Endpoint: `https://fdnd.directus.app/items`
   - Gebruikt voor: Person data, student informatie, avatar afbeeldingen
-  - Documentatie: https://docs.directus.io/reference/introduction.html
 
 ### Libraries & Frameworks
 - **Google Model Viewer** - v1.x
@@ -248,6 +267,12 @@ async function getData() {
   - CDN: `https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js`
   - Voor: Pixelate effect en visual effects
   - Docs: https://modelviewer.dev/docs/index.html#effects
+
+- **Canvas Confetti** - v1.9.3
+  - CDN: `https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js`
+  - Voor: Confetti animatie effect bij "5" keypress
+  - Docs: https://github.com/catdad/canvas-confetti
+  - Demo: https://www.kirilv.com/canvas-confetti/
 
 - **Three.js** - v0.172.0
   - CDN via importmap: `https://cdn.jsdelivr.net/npm/three@^0.172.0/build/three.module.min.js`
@@ -269,9 +294,6 @@ async function getData() {
   - Formaat: GLB (Binary glTF)
 
 
-- **Favicon**
-  - Bestand: `./assets/images/letterJ.webp`
-
 ### Gebruikte JavaScript APIs
 - **Fetch API** - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 - **Popover API** - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API
@@ -288,5 +310,46 @@ async function getData() {
 - **Konami Code** - Klassieke gaming Easter Egg: https://en.wikipedia.org/wiki/Konami_Code
 - **CSS Custom Properties (Variables)** - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
 
+
+---
+
+## Weeklog 2
+
+### Werkzaamheden (samengevat)
+* SVG icoon voor user hotspot gewijzigd (van `?` naar user icon)
+* SVG icoon styling en centering in buttons
+* Code verder geoptimaliseerd en refactored
+* Werkzaamheden uit Dag 4, 5 en 6 samengevoegd
+
+### Wat ik geleerd heb
+* Hoe je SVG iconen proper centert in buttons met CSS
+* Verschil tussen inline SVG en externe SVG bestanden
+* Best practices voor SVG styling met `fill` en `display` properties
+* Hoe je visueel feedback geeft aan gebruikers met iconen in plaats van tekst
+
+![Weeklog 2 Icons](./readme_images/weeklog2-icons.png)
+![Weeklog 2 Loading](./readme_images/weeklog2-info.png)
+
+### Code highlights
+
+```html
+<!-- SVG icoon in hotspot button -->
+<button class="Hotspot" slot="hotspot-2" popovertarget="info-popover">
+  <svg id="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="m17,5v-2h-1v-1h-2v-1h-4v1h-2v1h-1v2h-1v4h1v2h1v1h2v1h4v-1h2v-1h1v-2h1v-4h-1..."/>
+  </svg>
+</button>
+```
+
+```css
+/* SVG centering in buttons */
+button.Hotspot svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: auto;
+  fill: var(--text-color);
+}
+```
 
 ---

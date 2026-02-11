@@ -1,8 +1,10 @@
+/* Font: Undefined Medium - https://github.com/andirueckel/undefined-medium/tree/main */
 @font-face {
   font-family: "Undefined Medium";
   src: url("./assets/undefined-medium.woff2") format("woff2");
 }
 
+/* CSS Custom Properties (Variables) - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/--* */
 :root {
   /* Typography */
   --font-family: "Undefined Medium";
@@ -43,6 +45,7 @@
   --backdrop-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Dark mode - matchMedia API: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia */
 @media (prefers-color-scheme: dark) {
   :root {
     --dark-bg: #1e1e1e;
@@ -80,7 +83,7 @@ button {
   background-color: var(--medium-bg);
   color: var(--text-color);
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   cursor: pointer;
   transition: var(--transition-fast);
 }
@@ -89,7 +92,15 @@ button:hover {
   background-color: var(--light-bg);
 }
 
-/* Balloon Letters Animation */
+button.Hotspot svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: auto;
+  fill: var(--text-color);
+}
+
+/* Balloon Letters Animation - CSS Keyframes & Animations */
 .balloon-letters {
   display: flex;
   flex-direction: column;
@@ -176,7 +187,7 @@ body:has(.balloon-letters:not(.loaded)) {
   }
 }
 
-/* Popover Styles */
+/* Popover API - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API */
 [popover] {
   font-family: var(--font-family);
   font-size: 1.5em;
@@ -284,7 +295,7 @@ html:has([popover]:popover-open) {
   flex-shrink: 0;
 }
 
-/* Progress Bar */
+/* Progress element - MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress */
 progress[value] {
   -webkit-appearance: none;
   appearance: none;
@@ -307,7 +318,7 @@ progress[value]::-webkit-progress-value {
   border-radius: 2px;
 }
 
-/* Keyboard Key Styles */
+/* Keyboard Key Styles - Inspired by: https://codepen.io/AndreusCafe/pen/rNvWboJ */
 .cheatsheet kbd {
   --key-radius: 8px;
   --key-red: rgb(255, 100, 100);
@@ -403,7 +414,7 @@ progress[value]::-webkit-progress-value {
   100% { color: var(--key-red); }
 }
 
-/* Definition List (Konami Code) */
+/* Konami Code Cheatsheet - https://en.wikipedia.org/wiki/Konami_Code */
 .cheatsheet {
   position: fixed;
   bottom: 20px;
@@ -456,7 +467,7 @@ progress[value]::-webkit-progress-value {
   gap: var(--spacing-md);
   padding: var(--spacing-md) 0;
 
-  height: 
+
 }
 
 .skeleton {
@@ -489,7 +500,7 @@ progress[value]::-webkit-progress-value {
   gap: var(--spacing-sm);
 }
 
-/* Model Viewer */
+/* Model Viewer - https://modelviewer.dev/ */
 .model-container {
   overflow-x: hidden;
 }
@@ -626,3 +637,34 @@ model-viewer {
     padding: 4px 8px;
   }
 }
+
+.back {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  display: none; /* verberg standaard */
+  z-index: 1000;
+}
+
+.back {
+  animation: spin 2s linear infinite;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+

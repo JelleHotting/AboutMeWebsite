@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/webp" href="assets/images/letterJ.webp" />
 
+    <!-- Canvas Confetti Library - https://github.com/catdad/canvas-confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+
+    <!-- ES Module Shims - Import map polyfill -->
     <script
       async
       src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"
     ></script>
+    
+    <!-- Three.js via importmap - 3D rendering engine -->
     <script type="importmap">
       {
         "imports": {
@@ -18,14 +24,19 @@
         }
       }
     </script>
+    
+    <!-- Google Model Viewer - 3D model rendering - https://modelviewer.dev/ -->
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"
     ></script>
+    
+    <!-- Model Viewer Effects - Visual effects - https://modelviewer.dev/docs/index.html#effects -->
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"
     ></script>
+    
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -63,11 +74,13 @@
             />
           </li>
         </ul>
+        <!-- Progress element - MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress -->
         <progress id="progress-bar" value="0" max="100"></progress>
       </section>
 
       <h1>Klik op een vraagteken om meer te leren</h1>
 
+      <!-- 3D Model: low-poly_man.glb - https://sketchfab.com/3d-models/low-poly-man-7b93db2d46d847f191cf5e841b322856 -->
       <model-viewer
         alt="een low poly versie van een persoon"
         src="assets/low-poly_man.glb"
@@ -82,18 +95,20 @@
       >
         <effect-composer><pixelate-effect></pixelate-effect></effect-composer>
 
+        <!-- Popover API - MDN: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API -->
         <button
           class="Hotspot"
           slot="hotspot-2"
           data-surface="0 0 1020 1022 1023 0.879 0.052 0.068"
           popovertarget="info-popover"
         >
-          ?
+          <svg id="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17,5v-2h-1v-1h-2v-1h-4v1h-2v1h-1v2h-1v4h1v2h1v1h2v1h4v-1h2v-1h1v-2h1v-4h-1Zm-2,4v1h-1v1h-4v-1h-1v-1h-1v-4h1v-1h1v-1h4v1h1v1h1v4h-1Z"/><path d="m21,19v-1h-1v-1h-1v-1h-2v-1H7v1h-2v1h-1v1h-1v1h-1v3h1v1h18v-1h1v-3h-1Zm-16,0v-1h2v-1h10v1h2v1h1v2H4v-2h1Z"/></svg>
         </button>
         <div id="info-popover" popover>
           <h2></h2>
           <dl>
             <dt>Leeftijd</dt>
+            <!-- Time element - MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time -->
             <dd><time datetime=""></time></dd>
             <dt>Schoenmaat</dt>
             <dd id="shoe-size"></dd>
@@ -120,7 +135,7 @@
           data-surface="0 0 980 981 982 0.344 0.178 0.477"
           popovertarget="hobbies-popover"
         >
-          ?
+<?xml version="1.0" encoding="UTF-8"?><svg id="pencil-ruler" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19,11v-1h1v-1h1v-1h1v-1h1v-3h-1v-1h-1v-1h-1v-1h-3v1h-1v1h-1v1h-1v1h-1v1h-2v-1h-1v-1h-1v-1h-1v-1h-1v-1h-2v1h-1v1h-1v1h-1v1h-1v2h1v1h1v1h1v1h1v1h1v2h-1v1h-1v1h-1v1h-1v1h-1v6h6v-1h1v-1h1v-1h1v-1h1v-1h2v1h1v1h1v1h1v1h1v1h2v-1h1v-1h1v-1h1v-1h1v-2h-1v-1h-1v-1h-1v-1h-1v-1h-1v-2h1Zm-12-1v-1h-1v-1h-1v-1h-1v-2h1v-1h2v1h1v1h-1v1h1v1h1v-1h1v2h-1v1h-2Zm6,3v1h-1v1h-1v1h-1v1h-1v1h-1v1h-1v1h-1v1h-3v-3h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v1h1v1h1v1h-1v1h-1v1h-1v1h-1Zm6,3v1h1v2h-1v1h-2v-1h-1v-1h-1v-1h-1v-2h1v-1h2v1h-1v1h1v1h1v-1h1Zm-2-9v-1h-1v-1h1v-1h1v-1h1v1h1v1h1v1h-1v1h-1v1h-1v-1h-1Z"/></svg>
         </button>
         <div id="hobbies-popover" popover>
           <h2>Hobbies</h2>
@@ -148,7 +163,7 @@
           data-surface="0 0 3836 3838 3839 0.097 0.742 0.161"
           popovertarget="skills-popover"
         >
-          ?
+          <?xml version="1.0" encoding="UTF-8"?><svg id="shuffle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="8 15 9 15 9 17 8 17 8 18 7 18 7 19 1 19 1 17 7 17 7 16 8 16 8 15"/><polygon points="21 16 22 16 22 18 21 18 21 19 20 19 20 20 19 20 19 21 18 21 18 18 14 18 14 17 13 17 13 16 12 16 12 14 11 14 11 13 10 13 10 11 9 11 9 10 8 10 8 8 7 8 7 7 1 7 1 5 8 5 8 6 9 6 9 8 10 8 10 10 11 10 11 11 12 11 12 13 13 13 13 14 14 14 14 16 18 16 18 13 19 13 19 14 20 14 20 15 21 15 21 16"/><polygon points="22 5 22 7 21 7 21 8 20 8 20 9 19 9 19 10 18 10 18 7 14 7 14 8 13 8 13 9 12 9 12 7 13 7 13 6 14 6 14 5 18 5 18 2 19 2 19 3 20 3 20 4 21 4 21 5 22 5"/></svg>
         </button>
         <div id="skills-popover" popover>
           <h2>Random student</h2>
@@ -200,12 +215,13 @@
 
       <button class="back">Kom terug!</button>
 
+      <!-- Konami Code cheatsheet - https://en.wikipedia.org/wiki/Konami_Code -->
       <dl class="cheatsheet">
         <div>
           <dt>
             <kbd id="key-5"><span>5</span></kbd>
           </dt>
-          <dd>Party mode (werkt nog niet)</dd>
+          <dd>Party mode 🎉</dd>
         </div>
         <div>
           <dt>
