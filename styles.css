@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Undefined Medium";
-  src: url("./assets/undefined-medium.woff") format("woff");
+  src: url("./assets/undefined-medium.woff2") format("woff2");
 }
 
 :root {
@@ -196,6 +196,7 @@ body:has(.balloon-letters:not(.loaded)) {
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto 1fr;
   gap: 10px;
+  align-items: start;
 }
 
 [popover]::backdrop {
@@ -209,6 +210,7 @@ html:has([popover]:popover-open) {
 [popover] h2 {
   grid-column: 1;
   grid-row: 1;
+  margin: 0;
 }
 
 [popover] p {
@@ -216,6 +218,19 @@ html:has([popover]:popover-open) {
   grid-row: 2;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  margin: 0;
+}
+
+[popover] dl {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  margin: 0;
+    visibility: visible;
+}
+
+[popover] time {
+  grid-column: 1 / -1;
+  grid-row: 3;
 }
 
 [popover] .refresh {
@@ -293,7 +308,7 @@ progress[value]::-webkit-progress-value {
 }
 
 /* Keyboard Key Styles */
-kbd {
+.cheatsheet kbd {
   --key-radius: 8px;
   --key-red: rgb(255, 100, 100);
   --key-green: rgb(100, 200, 100);
@@ -321,7 +336,7 @@ kbd {
   z-index: 2;
 }
 
-kbd::before {
+.cheatsheet kbd::before {
   content: '';
   width: 400vmin;
   height: 400vmin;
@@ -334,7 +349,7 @@ kbd::before {
   z-index: 0;
 }
 
-kbd::after {
+.cheatsheet kbd::after {
   content: '';
   width: calc(100% - 4px);
   height: calc(100% - 4px);
@@ -347,25 +362,25 @@ kbd::after {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) inset;
 }
 
-kbd * {
+.cheatsheet kbd * {
   position: relative;
   z-index: 2;
 }
 
-kbd:active {
+.cheatsheet kbd:active {
   top: 0;
 }
 
-kbd:active::after {
+.cheatsheet kbd:active::after {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
 }
 
-kbd.pressed {
+.cheatsheet kbd.pressed {
   animation: kbd-color 0.5s linear infinite, kbd-shadow 0.5s linear infinite;
   top: 0;
 }
 
-kbd.pressed::after {
+.cheatsheet kbd.pressed::after {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
 }
 
@@ -389,7 +404,7 @@ kbd.pressed::after {
 }
 
 /* Definition List (Konami Code) */
-dl {
+.cheatsheet {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -405,30 +420,30 @@ dl {
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-dl.visible {
+.cheatsheet.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-dl div {
+.cheatsheet div {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-sm);
 }
 
-dl div:last-child {
+.cheatsheet div:last-child {
   margin-bottom: 0;
 }
 
-dl dt {
+.cheatsheet dt {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-dl dd {
+.cheatsheet dd {
   margin: 0;
   font-size: 0.9em;
 }
@@ -440,6 +455,8 @@ dl dd {
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-md) 0;
+
+  height: 
 }
 
 .skeleton {
