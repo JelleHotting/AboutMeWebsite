@@ -232,6 +232,13 @@ html:has([popover]:popover-open) {
   margin: 0;
 }
 
+[popover] ul {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
 [popover] dl {
   grid-column: 1 / -1;
   grid-row: 4;
